@@ -1,17 +1,32 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-  
-    this.movie = exampleMovieData[0];
-    this.movieList = exampleMovieData;
+    
+    this.state = {
+      movieList: [],
+      movie: null
+    };
+  }
+
+  componentDidMount() {
+    this.handleMovieTextEntry('Test');
+  }
+
+  handleMovieTextEntry(event) {
+    this.setState({
+      movieList: {'title': event},
+      movie: event
+      // movieList: exampleMovieData
+    });
   }
 
   render() {
     return (
       <div>
         <h1>{'Movie List'}</h1>
+        <Nav onMovieTextEntry={this.handleMovieTextEntry.bind(this)}/>
         <div>
-            <MovieList movieList={this.movieList} />
+            <MovieList movieList={this.state.movieList}/>
         </div>
       </div>
     );

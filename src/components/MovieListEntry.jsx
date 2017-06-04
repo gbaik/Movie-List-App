@@ -1,5 +1,5 @@
-var MovieListEntry = (props) => (
-  <div>{props.movie.title}</div>
+var MovieListEntry = ({movie}) => (
+  <div>{movie.title}</div>
 );
 
 
