@@ -1,12 +1,18 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
+  
+    this.movie = exampleMovieData[0];
+    this.movieList = exampleMovieData;
   }
 
   render() {
-    return (  
+    return (
       <div>
-        'Hello World!'
+        <h1>{'Movie List'}</h1>
+        <div>
+            <MovieList movieList={this.movieList} />
+        </div>
       </div>
     );
   }
